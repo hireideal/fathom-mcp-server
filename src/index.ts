@@ -1,6 +1,8 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
+import { db } from "./db";
 import { bearerAuthMiddleware } from "./middleware/auth";
 import { errorHandler } from "./middleware/error";
 import { logger, requestLogger } from "./middleware/logger";
