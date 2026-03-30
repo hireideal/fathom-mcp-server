@@ -33,7 +33,7 @@
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "tsup && cp -r public dist/",
+    "build": "tsup && cp -r public dist/ && cp -r drizzle dist/",
     "start": "node dist/index.js",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
