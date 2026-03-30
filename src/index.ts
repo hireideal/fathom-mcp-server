@@ -20,6 +20,15 @@ import { GRACEFUL_SHUTDOWN_TIMEOUT_MS } from "./shared/constants";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+// Run database migrations on startup
+try {
+  await migrate(db, { migrationsFolder: path.join(__dirname, "drizzle/migrations") });
+  console.log("Database migrations completed successfully");
+} catch (error) {
+  console.error("Database migration failed:", error);
+  process.exit(1);
+}
+
 const publicPath = path.join(__dirname, "public");
 
 const app = express();
